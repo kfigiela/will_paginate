@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'will_paginate/core_ext'
 
 module WillPaginate
@@ -23,8 +24,8 @@ module WillPaginate
     # default options that can be overridden on the global level
     @@pagination_options = {
       :class          => 'pagination',
-      :previous_label => '&laquo; Previous',
-      :next_label     => 'Next &raquo;',
+      :previous_label => '&laquo; Poprzednie',
+      :next_label     => 'Następne &raquo;',
       :inner_window   => 4, # links around the current page
       :outer_window   => 1, # links around beginning and end
       :separator      => ' ', # single space is friendly to spiders and non-graphic browsers
@@ -170,12 +171,12 @@ module WillPaginate
       
       if collection.total_pages < 2
         case collection.size
-        when 0; "No #{entry_name.pluralize} found"
-        when 1; "Displaying <b>1</b> #{entry_name}"
-        else;   "Displaying <b>all #{collection.size}</b> #{entry_name.pluralize}"
+        when 0; "Brak obiektów do wyświetlenia"
+        when 1; "Wyświetlanie 1 obiekt"
+        else;   "Wyświetlanie wszystkich <b>#{collection.size}</b> obiektów"
         end
       else
-        %{Displaying #{entry_name.pluralize} <b>%d&nbsp;-&nbsp;%d</b> of <b>%d</b> in total} % [
+        %{Wyświetlanie <b>%d&nbsp;-&nbsp;%d</b> z <b>%d</b>} % [
           collection.offset + 1,
           collection.offset + collection.length,
           collection.total_entries
