@@ -109,12 +109,12 @@ module WillPaginate
         
         if collection.total_pages < 2
           case collection.size
-          when 0; "No #{plural_name} found"
-          when 1; "Displaying #{b}1#{eb} #{entry_name}"
-          else;   "Displaying #{b}all #{collection.size}#{eb} #{plural_name}"
+          when 0; "Nie znaleziono obiektów"
+          when 1; "Wyświetlanie #{b}jednego#{eb}obiektu"
+          else;   "Wyświetlanei wszystkich #{b}#{collection.size}#{eb} obiektów"
           end
         else
-          %{Displaying #{plural_name} #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} % [
+          %{Wyświetlanie #{b}%d#{sp}-#{sp}%d#{eb} z #{b}%d#{eb}} % [
             collection.offset + 1,
             collection.offset + collection.length,
             collection.total_entries
