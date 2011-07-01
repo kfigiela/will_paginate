@@ -112,7 +112,7 @@ module WillPaginate
           case collection.size
           when 0; "Nie znaleziono obiektów"
           when 1; "Wyświetlanie #{b}jednego#{eb} obiektu"
-          else;   "Wyświetlanei wszystkich #{b}#{collection.size}#{eb} obiektów"
+          else;   "Wyświetlanie wszystkich #{b}#{collection.size}#{eb} obiektów"
           end
         else
           %{Wyświetlanie #{b}%d#{sp}-#{sp}%d#{eb} z #{b}%d#{eb}} % [
